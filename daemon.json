@@ -1,0 +1,17 @@
+{
+	"data-root": "/dockerlib",
+        "registry-mirrors": [
+        	"https://dockerhub.icu",
+            "https://docker.m.daocloud.io",
+			"https://docker.jianmuhub.com",
+			"https://huecker.io",
+			"https://dockerhub.timeweb.cloud",
+			"https://dockerhub1.beget.com",
+			"https://noohub.ru"
+        	"https://docker.mirrors.ustc.edu.cn", 
+        	"http://reg-mirror.qiniu.com", 
+        	"https://bytkgxyr.mirror.aliyuncs.com",
+        	"https://registry.docker-cn.com",
+        	"http://hub-mirror.c.163.com"
+        ]
+}

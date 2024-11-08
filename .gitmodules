@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = git@github.com:likeflyme/cloudbak-backend.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:likeflyme/cloudback-frontend.git
