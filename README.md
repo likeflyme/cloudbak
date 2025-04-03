@@ -50,7 +50,11 @@ docker run --name=cloudbak --restart=always -d \
 3. 交流群寻求帮助（群主大部分时间不保证答复）
 4. 提ISSUE
 
+社区: [https://forum.cloudbak.org](http://forum.cloudbak.org.cn)
+
 交流群：993046283
+
+微信群：添加微信 `MMXC2024` 后邀请进群
 
 ## 参考
 
