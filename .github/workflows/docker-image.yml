@@ -38,6 +38,7 @@ jobs:
           push: true
           tags: |
             likeflyme/cloudbak:${{ env.TAG_NAME }}
+             ${{ if contains(env.TAG_NAME, '-') == false && env.TAG_NAME =~ '^\d+\.\d+\.\d+$' }}likeflyme/cloudbak:latest${{ endif }}
           build-args: |
             SYSTEM_VERSION=${{ env.TAG_NAME }}
           cache-from: type=gha
