@@ -14,9 +14,16 @@ jobs:
       - name: Checkout Main Repository
         uses: actions/checkout@v4
 
-      - name: Extract Tag Name
+      - name: Extract Tag Name and Set IS_LATEST
         id: extract_tag
-        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+          if echo "$TAG_NAME" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "IS_LATEST=true" >> $GITHUB_ENV
+          else
+            echo "IS_LATEST=false" >> $GITHUB_ENV
+          fi
 
       - name: Set Up QEMU
         uses: docker/setup-qemu-action@v3
@@ -38,7 +45,7 @@ jobs:
           push: true
           tags: |
             likeflyme/cloudbak:${{ env.TAG_NAME }}
-             ${{ if contains(env.TAG_NAME, '-') == false && env.TAG_NAME =~ '^\d+\.\d+\.\d+$' }}likeflyme/cloudbak:latest${{ endif }}
+            ${{ env.IS_LATEST == 'true' && 'likeflyme/cloudbak:latest' || '' }}
           build-args: |
             SYSTEM_VERSION=${{ env.TAG_NAME }}
           cache-from: type=gha
