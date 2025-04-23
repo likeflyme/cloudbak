@@ -14,12 +14,14 @@ jobs:
       - name: Checkout Main Repository
         uses: actions/checkout@v4
 
-      - name: Extract Tag Name and Set IS_LATEST
-        id: extract_tag
+      - name: Extract Tag Name and Determine Latest
+        id: vars
         run: |
-          TAG_NAME=${GITHUB_REF#refs/tags/}
+          TAG_NAME="${GITHUB_REF#refs/tags/}"
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
-          if echo "$TAG_NAME" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+
+          # 检查是否是类似 1.2.3 的版本（不带后缀）
+          if [[ "$TAG_NAME" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "IS_LATEST=true" >> $GITHUB_ENV
           else
             echo "IS_LATEST=false" >> $GITHUB_ENV
@@ -37,16 +39,18 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and Push Docker Image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: |
-            likeflyme/cloudbak:${{ env.TAG_NAME }}
-            ${{ env.IS_LATEST == 'true' && 'likeflyme/cloudbak:latest' || '' }}
-          build-args: |
-            SYSTEM_VERSION=${{ env.TAG_NAME }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+      - name: Build and Push Docker Image (With or Without latest)
+        run: |
+          TAGS="likeflyme/cloudbak:${TAG_NAME}"
+          if [[ "$IS_LATEST" == "true" ]]; then
+            TAGS="$TAGS,likeflyme/cloudbak:latest"
+          fi
+
+          docker buildx build \
+            --platform linux/amd64,linux/arm64 \
+            --push \
+            --build-arg SYSTEM_VERSION=$TAG_NAME \
+            --tag $TAGS \
+            --cache-from type=gha \
+            --cache-to type=gha,mode=max \
+            .
