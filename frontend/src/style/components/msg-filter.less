@@ -1,0 +1,229 @@
+.filter-container {
+  .filter-head {
+    background-color: #F5F5F5;
+    .head-title {
+      padding: 0.357rem 1.071rem;
+      color: #AFAEAE;
+      display: flex;
+      .head-title-fill {
+        flex-grow: 1;
+      }
+      .head-title-tools {
+        cursor: pointer;
+      }
+    }
+    .head-search {
+      .weui-search-bar {
+        background-color: #F5F5F5;
+        .weui-search-bar__form {
+          height: 2.857rem;
+          background-color: #fff;
+          border: 0.071rem solid lightgray;
+          .weui-search-bar__box {
+            .select-type {
+              display: flex;
+              align-items: center;
+              background-color: #E6E6E6;
+              border-radius: 0.214rem;
+              color: #797979;
+              padding: 0.357rem 0.714rem;
+              cursor: pointer;
+              margin-right: 0.714rem;
+              max-width: 150px;
+              white-space: nowrap;
+            }
+            .select-clear {
+              display: flex;
+              //.weui-search-bar__input {
+              //  flex-grow: 1;
+              //}
+              .weui-icon-clear {
+                flex-grow: 1;
+              }
+            }
+            .select-type p {
+              margin-left: 0.714rem; /* 为第二个子元素（<p>）添加 margin-left */
+            }
+            .select-type .select-type-clear:nth-child(3) {
+              margin-left: 0.357rem; /* 为第三个子元素（font-awesome-icon）添加 margin-left */
+            }
+            .weui-search-bar__input {
+              flex-grow: 1;
+              font-size: 1rem;
+            }
+            .weui-icon-clear {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .head-filter {
+      padding: 0 0.714rem;
+      .filter-ul {
+        display: flex;
+        flex-wrap: wrap;
+        .filter-item {
+          padding: 0.357rem 0.714rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .msg-body {
+    // 聊天框需要调转180度
+    transform: rotate(180deg) translateZ(0);
+    // 文本方向切换，目的是滚动条换个方向
+    direction: rtl;
+    flex-grow: 1;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    .chat-grow {
+      flex-grow: 1;
+    }
+    .msg-ul {
+      // 避免内容方向被切换
+      direction: ltr;
+      width: 100%;
+      .msg-li {
+        // 再将每项调转180度
+        transform: rotate(180deg) translateZ(0);
+        word-break: break-word;
+        padding: 0 1.429rem;
+        display: flex;
+        .msg-head {
+          padding-top: 1.071rem;
+          width: 2.5rem;
+          height: 2.5rem;
+          img {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.214rem;
+          }
+        }
+        .msg-right {
+          flex-grow: 1;
+          padding-left: 1.071rem;
+          padding-right: 1.071rem;
+
+          .msg-title {
+            padding-top: 1.071rem;
+            border-top: 0.071rem solid #EFEFEF;
+            display: flex;
+            color: gray;
+            font-size: 0.857rem;
+            .msg-grow {
+              flex-grow: 1;
+            }
+          }
+          .msg-content {
+            display: flex;
+            .msg-base {
+              max-width: 28.571rem;
+              padding: 1.071rem 0;
+              .msg-media {
+                border: 0.071rem solid black;
+              }
+              .msg-no-support {
+                font-size: 0.857rem;
+              }
+            }
+            .msg-ref {
+              flex-grow: 1;
+              display: flex;
+              align-items: center;
+              text-align: right;
+              cursor: pointer;
+              .msg-checkout {
+                width: 100%;
+                visibility: hidden;
+              }
+            }
+          }
+          .msg-content:hover {
+            .msg-checkout {
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+    .no-msg {
+      text-align: center;
+      transform: rotate(180deg) translateZ(0);
+      direction: ltr;
+    }
+    .load-more {
+      transform: rotate(180deg) translateZ(0);
+      direction: ltr;
+      text-align: center;
+      font-size: 0.857rem;
+      a {
+        color: dimgray;
+      }
+    }
+  }
+
+  // 以下是滚动条样式
+  /* 隐藏默认的滚动条轨道和拇指 */
+  .msg-body::-webkit-scrollbar {
+    width: 0.429rem; /* 隐藏滚动条 */
+    background: transparent; /* 使滚动条轨道背景透明 */
+  }
+
+  /* 鼠标悬停时显示滚动条轨道 */
+  .msg-body:hover::-webkit-scrollbar {
+    width: 0.429rem; /* 设置滚动条宽度 */
+    background: #f0f0f0; /* 滚动条轨道背景颜色 */
+  }
+
+  /* 滚动条轨道样式 */
+  .msg-body:hover::-webkit-scrollbar-track-piece {
+    background: #f0f0f0; /* 设置滚动条轨道背景颜色 */
+    border-radius: 0.571rem; /* 设置滚动条轨道圆角 */
+  }
+
+  /* 滚动条拇指样式 */
+  .msg-body:hover::-webkit-scrollbar-thumb {
+    background-color: #c8c9cc; /* 设置滚动条拇指背景颜色 */
+    border-radius: 0.571rem; /* 设置滚动条拇指圆角 */
+  }
+
+  /* 鼠标悬停在滚动条拇指上时的样式 */
+  .msg-body:hover::-webkit-scrollbar-thumb:hover {
+    background-color: #b0b0b0; /* 鼠标悬停时滚动条拇指背景颜色 */
+  }
+}
+/* Define an animation behavior */
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+/* This is the class name given by the Font Awesome component when icon contains 'spinner' */
+.fa-spinner {
+  /* Apply 'spinner' keyframes looping once every second (1s)  */
+  animation: spinner 1s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .filter-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+  }
+}

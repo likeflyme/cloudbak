@@ -1,0 +1,172 @@
+.main-container {
+  display: flex;
+}
+.main-sidebar, .main-session, .main-content {
+  /* 设置子元素的基本样式 */
+  height: 100%; /* 让子元素的高度与父容器一致 */
+}
+
+.main-sidebar {
+  width: 55px; /* 设置侧边栏的宽度 */
+  background-color: #2E2E2E;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0; /* 不伸展 */
+  flex-shrink: 0; /* 不缩小 */
+  .sidebar-bottom {
+    width: 100%;
+    height: 40px;
+    .item-icon {
+      text-align: center;
+      font-size: 19px;
+      color: #999999;
+    }
+    .item-icon:hover {
+      cursor: pointer;
+      color: #FFFFFF;
+    }
+  }
+}
+.main-right {
+
+}
+.main-settings-bar {
+  width: 100px;
+  background-color: #232323;
+  .settings-bar-ul {
+    .settings-bar-item {
+      font-size: 14px;
+      color: #999999;
+      padding: 10px 15px;
+    }
+    .settings-bar-item:hover {
+      cursor: pointer;
+      background-color: #2E2E2E;
+    }
+  }
+}
+
+.item-container {
+  flex-grow: 1;
+  .item {
+    margin-top: 16px;
+    text-align: center;
+    .u-header {
+      width: 40px;
+      height: 40px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .item-icon {
+      font-size: 19px;
+      color: #999999;
+    }
+    .item-icon:hover {
+      cursor: pointer;
+    }
+    .item-icon-active {
+      color: #07C160!important;
+    }
+  }
+  .item:first-child {
+    margin-top: 30px;
+  }
+}
+
+.main-overlay {
+  .main-overlay-desc {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    width: 100%;
+    height: 100%;
+    .setting-delete-session {
+      display: none;
+    }
+    .main-sidebar {
+      display: none;
+    }
+    .main-right {
+      width: 100%;
+      padding-bottom: 60px;
+    }
+  }
+  .weui-tab {
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    .weui-tabbar__icon {
+      font-size: 22px;
+    }
+    .weui-tabbar__label {
+      font-size: 13px;
+    }
+  }
+  .main-overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(2px); /* 背景模糊效果 */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main-container {
+    width: 100%;
+    height: 100%;
+    .main-right {
+      flex-grow: 1;
+    }
+    .weui-tab {
+      display: none;
+    }
+  }
+  .main-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    backdrop-filter: blur(2px); /* 背景模糊效果 */
+  }
+}
+
+@media (min-width: 1025px) {
+  .main-container {
+    width: 1025px;
+    height: 850px;
+    max-height: 100vh; /* 限制最大高度为视口高度 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid lightgray;
+    .main-right {
+      flex-grow: 1;
+    }
+    .weui-tab {
+      display: none;
+    }
+  }
+  .main-overlay {
+    width: 1025px;
+    height: 850px;
+    max-height: 100vh; /* 限制最大高度为视口高度 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    backdrop-filter: blur(2px); /* 背景模糊效果 */
+  }
+}

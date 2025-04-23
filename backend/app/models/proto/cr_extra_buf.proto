@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message RoomData {
+
+    message User {
+        string id = 1;
+        string name = 2;
+        int32 other = 3;
+    }
+
+    repeated User users = 1;
+    int32 f7 = 7;
+    int32 f8 = 8;
+
+}

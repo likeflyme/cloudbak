@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message BytesExtra {
+
+    message KV1 {
+        int32 s1 = 1;
+        int32 s2 = 2;
+    }
+
+    message KV3 {
+        int32 s1 = 1;
+        string s2 = 2;
+    }
+
+    repeated KV1 f1 = 1;
+    repeated KV3 f3 = 3;
+}

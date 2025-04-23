@@ -1,0 +1,107 @@
+.downloadClient:hover {
+  cursor: pointer;
+}
+.page-home {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: #EDEDED;
+  .page-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.857rem;
+  }
+}
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5.714rem;
+  padding: 1.429rem;
+
+  .sidebar-ul {
+    margin-top: 0.714rem;
+
+    .sidebar-li {
+      width: 4.286rem;
+      height: 4.286rem;
+      padding: 0;
+      border-radius: 0.714rem;
+      margin-bottom: 0.714rem;
+
+      .name-container {
+        width: 4.286rem;
+        height: 4.286rem;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 4.286rem;
+        font-size: 2.143rem;
+        border: 0.071rem solid lightgray;
+        color: darkgray;
+      }
+
+      .active {
+        //border-color: #059789;
+        color: #059789;
+        border-color: darkgray;
+        box-shadow: 0 0 0.714rem rgba(0, 0, 0, 0.1);
+      }
+
+      .name-container:hover {
+        cursor: pointer;
+        box-shadow: 0 0 0.714rem rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .open-close-container {
+    text-align: center;
+
+    .open-close {
+      width: 2.143rem;
+      height: 2.143rem;
+    }
+  }
+}
+
+.session {
+  margin-bottom: 0.714rem;
+
+  .session_name {
+  }
+
+  .session-head-img {
+    width: 4.286rem;
+    height: 4.286rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0.714rem rgba(0, 0, 0, 0.1);
+  }
+
+  .session-head-img:hover {
+    cursor: pointer;
+  }
+}
+
+.session-active {
+  border: 0.142rem solid var(--weui-BRAND-80);
+}
+
+@media (max-width: 1024px) {
+  // 小屏去掉PC浏览器的添加功能
+  .sidebar {
+    display: none;
+  }
+  .toolbar {
+    display: none;
+  }
+  .sys-window-add-session {
+    display: none;
+  }
+  .page-footer {
+    display: none;
+  }
+}

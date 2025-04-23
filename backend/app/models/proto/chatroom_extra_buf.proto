@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message User {
+    string id = 1;
+    string remark = 2;
+    int32 status = 3;
+}
+
+message UserList {
+    repeated User users = 1;
+    int64 field7 = 7;
+    int64 field8 = 8;
+}

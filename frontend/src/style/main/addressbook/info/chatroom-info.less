@@ -1,0 +1,97 @@
+.info-container {
+  background-color: #EFEFEF; /* 示例背景色 */
+  display: flex;
+  flex-direction: column; // 垂直排列
+  overflow: hidden;
+  height: 100%;
+  .info-top {
+    padding-left: 1.071rem;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    height: 4.5rem;
+    border-bottom: 0.071rem solid lightgray;
+    .info-title {
+      height: 4.5rem;
+      font-size: 1.429rem;
+      line-height: 4.5rem;
+    }
+  }
+  .info-msg {
+    flex-grow: 1;
+    overflow-y: scroll;
+    .users-container {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 1.429rem auto;
+      .user {
+        margin-left: 1.429rem;
+        width: 3.571rem;
+        height: 7.143rem;
+        border-radius: 0.357rem;
+        padding: 0.714rem;
+        .user-img {
+          width: 3.571rem;
+          height: 3.571rem;
+        }
+
+        .user-name {
+          font-size: 0.857rem;
+          text-align: center;
+          color: #797979;
+        }
+      }
+      .user:hover {
+        background-color: #E6E6E6;
+      }
+    }
+    .comment-btn {
+      bottom: 0.714rem;
+      text-align: center;
+      margin-top: 0.714rem;
+    }
+  }
+  // 以下是滚动条样式
+  .info-msg::-webkit-scrollbar {
+    width: 0.429rem;
+    background: transparent; /* 使滚动条轨道背景透明 */
+  }
+
+  /* 鼠标悬停时显示滚动条轨道 */
+  .info-msg:hover::-webkit-scrollbar {
+    width: 0.429rem; /* 设置滚动条宽度 */
+    background: #f0f0f0; /* 滚动条轨道背景颜色 */
+  }
+
+  /* 滚动条轨道样式 */
+  .info-msg:hover::-webkit-scrollbar-track-piece {
+    background: #f0f0f0; /* 设置滚动条轨道背景颜色 */
+    border-radius: 0.571rem; /* 设置滚动条轨道圆角 */
+  }
+
+  /* 滚动条拇指样式 */
+  .info-msg:hover::-webkit-scrollbar-thumb {
+    background-color: #c8c9cc; /* 设置滚动条拇指背景颜色 */
+    border-radius: 0.571rem; /* 设置滚动条拇指圆角 */
+  }
+
+  /* 鼠标悬停在滚动条拇指上时的样式 */
+  .info-msg:hover::-webkit-scrollbar-thumb:hover {
+    background-color: #b0b0b0; /* 鼠标悬停时滚动条拇指背景颜色 */
+  }
+}
+@media (max-width: 768px) {
+  .info-top {
+    .main-back {
+      color: gray;
+      padding-right: 0.714rem;
+    }
+  }
+
+}
+@media (min-width: 769px) {
+  .info-top {
+    .main-back {
+      display: none;
+    }
+  }
+}

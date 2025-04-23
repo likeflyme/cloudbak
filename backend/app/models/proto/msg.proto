@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package WechatBakTool.Model;
+
+message TVType {
+    int32 Type = 1;
+    string TypeValue = 2;
+}
+
+message ProtoMsg {
+    repeated TVType TVMsg = 3;
+}

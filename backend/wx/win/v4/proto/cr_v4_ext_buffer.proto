@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message User {
+    string id = 1;         // 用户唯一标识
+    string name = 2;       // 用户名
+    int32 flag = 3;        // 可能表示用户状态或权限
+    string group_id = 4;   // 所属群组ID
+}
+
+message ChatRoom {
+    repeated User users = 1;        // 用户列表
+    int64 field_3 = 3;              // 未知字段（可能是时间戳或ID）
+    int64 field_4 = 4;              // 未知字段（可能是时间戳或ID）
+    repeated string extra_data = 5; // 额外数据（如特别成员）
+}

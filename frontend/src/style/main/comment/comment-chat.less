@@ -1,0 +1,361 @@
+* {
+  box-sizing: border-box;
+}
+/* Define an animation behavior */
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+/* This is the class name given by the Font Awesome component when icon contains 'spinner' */
+.fa-spinner {
+  /* Apply 'spinner' keyframes looping once every second (1s)  */
+  animation: spinner 1s linear infinite;
+}
+.main-content {
+  background-color: #F5F5F5;
+  display: flex;
+  flex-direction: column; // 垂直排列
+  overflow: hidden;
+  height: 100%;
+  .main-content-top {
+    padding-left: 1.071rem;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    height: 4.5rem;
+    border-bottom: 0.071rem solid lightgray;
+    .main-content-title {
+      height: 100%;
+      font-size: 1.143rem;
+      line-height: 4.5rem;
+      display: flex;
+      align-items: center; /* 垂直居中 */
+      overflow: hidden;
+    }
+    .main-content-toolbar {
+      padding-right: 0.714rem;
+      font-size: 1.786rem;
+      cursor: pointer;
+    }
+  }
+  .main-content-info {
+    flex-grow: 1;
+    // 聊天框需要调转180度
+    transform: rotate(180deg) translateZ(0);
+    direction: rtl;
+    padding-left: 1.429rem;
+    padding-right: 1.429rem;
+    overflow-y: scroll;
+    flex-direction: column;
+    display: flex;
+    .chat-grow {
+      flex-grow: 1;
+    }
+    .chat-container {
+      transform: rotate(180deg) translateZ(0);
+      .tips {
+        font-size: 0.857rem;
+        color: gray;
+        text-align: center;
+        padding: 0.714rem;
+        .tips-content {
+          direction: ltr;
+          //max-width: 21.429rem;
+          margin: 0 auto;
+          display: inline-block;
+          padding: 0 0.357rem;
+          background-color: #dadada;
+          color: #FFFFFF;
+          border-radius: 2px;
+        }
+      }
+      .chat {
+        margin-top: 0.714rem;
+        display: flex;
+        .chat-header {
+          width: 2.5rem;
+          height: 2.5rem;
+          img {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.214rem;
+          }
+        }
+        .chat-info {
+          padding-left: 0.714rem;
+          padding-right: 0.714rem;
+          .chat-nickname {
+            font-size: 0.857rem;
+            color: #BEBEBE;
+            text-align: left;
+            direction: ltr;
+          }
+          .chat-text {
+            direction: ltr;
+            font-size: 1rem;
+            margin-top: 0.214rem;
+            padding: 0.357rem 0.714rem;
+            border-radius: 0.357rem;
+            display: inline-block;
+            //box-shadow: 0 0 0.714rem rgba(0, 0, 0, 0.1);
+            color: #232323;
+            word-wrap: break-word;
+            max-width: 28.571rem;
+          }
+          .chat-text:hover {
+            background-color: #EBEBEB;
+          }
+          .chat-img {
+            border-radius: 0.286rem;
+            //border: 0.071rem solid lightgray;
+            img {
+              max-width: 14.286rem;
+            }
+          }
+          .chat-img:hover {
+            cursor: pointer;
+          }
+          .chat-media {
+
+          }
+          .chat-phone {
+            background-color: #FFFFFF;
+            border-radius: 5px;
+          }
+          .refer-msg {
+            direction: ltr;
+            margin-top: 0.357rem;
+            .refer-text {
+              font-size: 0.857rem;
+              background-color: #E8E8E8;
+              color: #797979;
+              padding: 0.357rem;
+              border-radius: 0.214rem;
+              display: inline-block;
+              max-width: 28.571rem;
+              // 长文本换行
+              word-wrap: break-word;
+              word-break: break-all;
+              .icon-file {
+                color: #207346;
+              }
+            }
+            .refer-img {
+              font-size: 0.857rem;
+              background-color: #E8E8E8;
+              color: #797979;
+              padding: 0.357rem 0.714rem;
+              border-radius: 0.214rem;
+              display: inline-block;
+            }
+          }
+          .chat-file {
+            direction: ltr;
+            height: 7.143rem;
+            background-color: #FFFFFF;
+            border-radius: 0.357rem;
+            .chat-file-top {
+              height: 5.357rem;
+              border-bottom: 0.071rem solid #f0f0f0;
+              display: flex;
+              padding: 0.714rem;
+              .chat-file-left {
+                width: 16.429rem;
+                height: 100%;
+                .chat-file-title {
+                  font-size: 1rem;
+                }
+                .chat-file-content {
+                  font-size: 0.857rem;
+                  color: #797979;
+                  align-items: center;
+                }
+              }
+              .chat-file-icon {
+                width: 3.571rem;
+                height: 100%;
+                font-size: 2.143rem;
+                text-align: center;
+                color: #207346;
+                .item-icon {
+                  width: 2.857rem;
+                }
+              }
+            }
+            .chat-file-bottom {
+              .chat-file-app-info {
+                font-size: 0.786rem;
+                color: #797979;
+                padding-left: 0.714rem;
+                line-height: 1.786rem;
+              }
+            }
+          }
+          .chat-file:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .chat:last-child {
+        margin-bottom: 0.429rem;
+      }
+      .chat.right {
+        .chat-info {
+          .chat-nickname {
+            text-align: right;
+          }
+          .chat-text {
+            text-align: left;
+            background-color: #95ec69;
+          }
+        }
+      }
+      .chat.left {
+        flex-direction: row-reverse;
+        .chat-info {
+          text-align: left;
+          .chat-nickname {
+            text-align: left;
+          }
+          .chat-text {
+            text-align: left;
+            background-color: #FFFFFF;
+          }
+          .chat-media {
+            direction: ltr;
+          }
+        }
+      }
+      .chat.right .chat-info:hover {
+        .chat-text {
+          background-color: #89D961;
+        }
+      }
+      .chat.left .chat-info:hover {
+        .chat-text {
+          background-color: #ebebeb;
+        }
+      }
+    }
+
+    .load-more {
+      text-align: center;
+      font-size: 0.857rem;
+      transform: rotate(180deg) translateZ(0);
+      color: #2C90FF;
+      .no-more-msg {
+        font-size: 0.857rem;
+        color: dimgray;
+      }
+      .loading-icon {
+        color: gray;
+      }
+    }
+
+
+  }
+  .main-tools {
+    position: absolute;
+    width: 17.857rem;
+    height: 56.214rem;
+    border-left: 0.071rem solid #EBEBEB;
+    right: 0;top: 4.5rem;
+    background-color: #FFFFFF;
+    padding: 0.714rem 0.714rem;
+    .main-tools-ul {
+      .main-tools-li {
+        border-bottom: 0.071rem solid #EBEBEB;
+        padding: 0.714rem 0.357rem;
+        font-size: 1rem;
+        .chatroom-item {
+          padding: 0.571rem 0;
+          .chatroom-value {
+            color: gray;
+          }
+        }
+      }
+      .flex {
+        display: flex;
+      }
+      .tool-chat {
+        cursor: pointer;
+        .tool-chevron-right {
+          color: gray;
+          font-size: 0.929rem;
+        }
+      }
+    }
+  }
+
+  // 以下是滚动条样式
+  /* 隐藏默认的滚动条轨道和拇指 */
+  .main-content-info::-webkit-scrollbar {
+    width: 0.429rem; /* 隐藏滚动条 */
+    background: transparent; /* 使滚动条轨道背景透明 */
+  }
+
+  /* 鼠标悬停时显示滚动条轨道 */
+  .main-content-info:hover::-webkit-scrollbar {
+    width: 0.429rem; /* 设置滚动条宽度 */
+    background: #f0f0f0; /* 滚动条轨道背景颜色 */
+  }
+
+  /* 滚动条轨道样式 */
+  .main-content-info:hover::-webkit-scrollbar-track-piece {
+    background: #f0f0f0; /* 设置滚动条轨道背景颜色 */
+    border-radius: 0.571rem; /* 设置滚动条轨道圆角 */
+  }
+
+  /* 滚动条拇指样式 */
+  .main-content-info:hover::-webkit-scrollbar-thumb {
+    background-color: #c8c9cc; /* 设置滚动条拇指背景颜色 */
+    border-radius: 0.571rem; /* 设置滚动条拇指圆角 */
+  }
+
+  /* 鼠标悬停在滚动条拇指上时的样式 */
+  .main-content-info:hover::-webkit-scrollbar-thumb:hover {
+    background-color: #b0b0b0; /* 鼠标悬停时滚动条拇指背景颜色 */
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .main-back {
+    padding-right: 1.429rem;
+    color: dimgray;
+    cursor: pointer;
+  }
+  .msg-filter {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+  }
+  .msg-filter.open {
+    transform: translateX(-100%);
+  }
+  .chat-file {
+    width: 18rem;
+  }
+}
+@media (min-width: 769px) {
+  .main-back {
+    display: none;
+  }
+  .msg-filter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 42.857rem;
+    height: 50rem;
+    border: 0.071rem solid lightgray;
+    transform: translate(-50%, -50%);
+    border-radius: 0.214rem;
+  }
+  .chat-file {
+    width: 21.429rem;
+  }
+}

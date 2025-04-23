@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package CBakWeChat.Model;
+
+
+message Animal {
+    string title = 1;
+    int32 age = 2;
+    bool isDead = 3;
+    repeated Animal children = 4;
+    repeated string foot = 5;
+}

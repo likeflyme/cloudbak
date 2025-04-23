@@ -1,0 +1,58 @@
+html,
+body {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Helvetica Neue", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+body,
+.page {
+  background-color: var(--weui-BG-0);
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  color: var(--weui-FG-0);
+}
+
+.weui-btn:hover {
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  html {
+    font-size: 16px; /* 手机 */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  html {
+    font-size: 15px; /* 平板 */
+  }
+}
+
+@media (min-width: 1025px) {
+  html {
+    font-size: 14px; /* 桌面 */
+  }
+}
