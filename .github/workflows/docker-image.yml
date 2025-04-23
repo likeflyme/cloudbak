@@ -37,7 +37,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            likeflyme/cloudbak-pro:${{ env.TAG_NAME }}
+            likeflyme/cloudbak:${{ env.TAG_NAME }}
           build-args: |
             SYSTEM_VERSION=${{ env.TAG_NAME }}
           cache-from: type=gha
