@@ -32,7 +32,7 @@ async def upload_zip(
         file_path: Optional[str] = Form(...),
         sys_session_id: Optional[int] = Form(...),
         wx_id: Optional[str] = Form(...)):
-    file_path = file_path.replace("\\", '/')
+    file_path = file_path.replace("\\", "/").lstrip("/")
     logger.info("文件路径：" + str(file_path))
     wx_dir = get_wx_dir_directly(sys_session_id, wx_id)
     save_path = os.path.join(wx_dir, file_path)
