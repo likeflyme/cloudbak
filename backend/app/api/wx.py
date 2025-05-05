@@ -4,7 +4,7 @@ import time
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, UploadFile, File, Form, BackgroundTasks, Depends
+from fastapi import APIRouter, UploadFile, File, Form, BackgroundTasks, Depends, HTTPException 
 from sqlalchemy.orm import Session
 
 from app.dependencies.auth_dep import get_current_user
@@ -34,8 +34,21 @@ async def upload_zip(
         wx_id: Optional[str] = Form(...)):
     file_path = file_path.replace("\\", "/").lstrip("/")
     logger.info("文件路径：" + str(file_path))
+    # 获取用户保存目录
     wx_dir = get_wx_dir_directly(sys_session_id, wx_id)
+    # 拼接保存路径
     save_path = os.path.join(wx_dir, file_path)
+
+    # 检查路径是否穿透到 wx_dir 之外
+    try:
+        abs_save_path = Path(save_path).resolve(strict=False)
+        abs_wx_dir = Path(wx_dir).resolve(strict=True)
+        if not str(abs_save_path).startswith(str(abs_wx_dir)):
+            logger.error("路径非法：尝试穿透目录")
+            raise HTTPException(status_code=400, detail="非法文件路径")
+    except Exception as e:
+        logger.error(f"路径校验失败：{e}")
+        raise HTTPException(status_code=400, detail="路径校验失败")
 
     # 创建目录（如果不存在）
     directory = Path(save_path).parent
